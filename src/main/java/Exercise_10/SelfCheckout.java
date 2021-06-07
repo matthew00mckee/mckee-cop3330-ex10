@@ -8,9 +8,11 @@ package Exercise_10;
 import java.util.Scanner;
 public class SelfCheckout {
     public static void main(String[] args){
+        //constant to calculate tax at %5.5
         final double TAX= 1.055;
         Scanner input = new Scanner(System.in);
 
+        //user "checkout"
         System.out.print("What is the price of item 1?");
         String price1Str= input.next();
         double Price1 = Double.parseDouble(price1Str);
@@ -32,11 +34,15 @@ public class SelfCheckout {
         String quantity3Str= input.next();
         int quantity3 = Integer.parseInt(quantity3Str);
 
+        //math for the subtotal and tax and such
         double subtotal = Price1*quantity1+Price2*quantity2+Price3*quantity3;
         double total = subtotal*TAX;
         double taxTotal = total - subtotal;
         taxTotal = Math.round(taxTotal *100.0)/100.0;
+        total = Math.round(total*100.0)/100.0;
 
+
+        //printout with all the math but separate from the calculations
         System.out.print("subtotal: $"+ subtotal +"\ntax: $"+ taxTotal +"\ntotal: $"+ total);
 
     }
